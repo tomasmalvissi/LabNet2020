@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Lab.Consola")]
+[assembly: AssemblyTitle("Lab.WF")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Lab.Consola")]
+[assembly: AssemblyProduct("Lab.WF")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a04ad373-d885-48fe-890b-1b7cbc82f041")]
+[assembly: Guid("f3f9f69c-dea4-46f4-9969-116bbdbdf8ea")]
 
 // Version information for an assembly consists of the following four values:
 //
