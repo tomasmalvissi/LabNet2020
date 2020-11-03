@@ -20,13 +20,34 @@ namespace Lab.WF
         public FormMuestroDatos()
         {
             InitializeComponent();
-            CargarDGVProd();
-            CargarDGVCat();
+            CargarDGVp();
+            CargarDGVc();
         }
-        private void CargarDGVProd() 
+        private void CargarDGVp() 
         {
             dgvp.Rows.Clear();
-            var prod = prodlog.Producto(IDp);
+            var productos = prodlog.GetAll();
+            foreach (var item in productos)
+            {
+                dgvp.Rows.Add(item.ProductID, item.ProductName, item.SupplierID, item.CategoryID, 
+                              item.QuantityPerUnit, item.UnitPrice, item.UnitsInStock, item.UnitsOnOrder, 
+                              item.ReorderLevel, item.Discontinued);
+            }
+        }
+        private void CargarDGVc() 
+        {
+            dgvc.Rows.Clear();
+            var categorias = catlog.GetAll();
+            foreach (var item in categorias)
+            {
+                dgvc.Rows.Add(item.CategoryID, item.CategoryName, item.Description, item.Picture);
+            }
+                
+        }
+        private void DGVpID() 
+        {
+            dgvp.Rows.Clear();
+            var prod = prodlog.GetOne(IDp);
             foreach (DataGridViewRow dr in dgvp.Rows)
             {
                 dr.Cells[0].Value = prod.ProductID;
@@ -41,10 +62,10 @@ namespace Lab.WF
                 dr.Cells[9].Value = prod.Discontinued;
             }
         }
-        private void CargarDGVCat()
+        private void DGVcID()
         {
             dgvc.Rows.Clear();
-            var cat = catlog.Categoria(IDc);
+            var cat = catlog.GetOne(IDc);
             foreach (DataGridViewRow dr in dgvc.Rows)
             {
                 dr.Cells[0].Value = cat.CategoryID;
@@ -56,13 +77,13 @@ namespace Lab.WF
         private void btnBuscarProd_Click(object sender, EventArgs e)
         {
             IDp = int.Parse(txtIDProd.Text);
-            CargarDGVProd();
+            DGVpID();
         }
 
         private void btnBuscarCat_Click(object sender, EventArgs e)
         {
             IDc = int.Parse(txtIDCat.Text);
-            CargarDGVCat();
+            DGVcID();
         }
     }
 }

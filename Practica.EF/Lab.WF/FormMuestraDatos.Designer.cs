@@ -50,6 +50,10 @@
             this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Picture = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAddProd = new System.Windows.Forms.Button();
+            this.btnAddCat = new System.Windows.Forms.Button();
+            this.btnElimP = new System.Windows.Forms.Button();
+            this.btnElimCat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvc)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +74,7 @@
             this.Discontinued});
             this.dgvp.Location = new System.Drawing.Point(38, 72);
             this.dgvp.Name = "dgvp";
-            this.dgvp.Size = new System.Drawing.Size(730, 131);
+            this.dgvp.Size = new System.Drawing.Size(727, 160);
             this.dgvp.TabIndex = 0;
             // 
             // ProductID
@@ -153,7 +157,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 235);
+            this.label2.Location = new System.Drawing.Point(38, 236);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(156, 13);
             this.label2.TabIndex = 6;
@@ -171,7 +175,7 @@
             // 
             // txtIDCat
             // 
-            this.txtIDCat.Location = new System.Drawing.Point(38, 257);
+            this.txtIDCat.Location = new System.Drawing.Point(38, 258);
             this.txtIDCat.Name = "txtIDCat";
             this.txtIDCat.Size = new System.Drawing.Size(100, 20);
             this.txtIDCat.TabIndex = 4;
@@ -187,7 +191,7 @@
             this.Picture});
             this.dgvc.Location = new System.Drawing.Point(38, 283);
             this.dgvc.Name = "dgvc";
-            this.dgvc.Size = new System.Drawing.Size(443, 93);
+            this.dgvc.Size = new System.Drawing.Size(443, 155);
             this.dgvc.TabIndex = 7;
             // 
             // CategoryyID
@@ -210,11 +214,51 @@
             this.Picture.HeaderText = "Picture";
             this.Picture.Name = "Picture";
             // 
+            // btnAddProd
+            // 
+            this.btnAddProd.Location = new System.Drawing.Point(566, 35);
+            this.btnAddProd.Name = "btnAddProd";
+            this.btnAddProd.Size = new System.Drawing.Size(104, 23);
+            this.btnAddProd.TabIndex = 8;
+            this.btnAddProd.Text = "Añadir Producto";
+            this.btnAddProd.UseVisualStyleBackColor = true;
+            // 
+            // btnAddCat
+            // 
+            this.btnAddCat.Location = new System.Drawing.Point(529, 283);
+            this.btnAddCat.Name = "btnAddCat";
+            this.btnAddCat.Size = new System.Drawing.Size(114, 23);
+            this.btnAddCat.TabIndex = 9;
+            this.btnAddCat.Text = "Añadir Categoria";
+            this.btnAddCat.UseVisualStyleBackColor = true;
+            // 
+            // btnElimP
+            // 
+            this.btnElimP.Location = new System.Drawing.Point(690, 35);
+            this.btnElimP.Name = "btnElimP";
+            this.btnElimP.Size = new System.Drawing.Size(75, 23);
+            this.btnElimP.TabIndex = 10;
+            this.btnElimP.Text = "Eliminar";
+            this.btnElimP.UseVisualStyleBackColor = true;
+            // 
+            // btnElimCat
+            // 
+            this.btnElimCat.Location = new System.Drawing.Point(529, 326);
+            this.btnElimCat.Name = "btnElimCat";
+            this.btnElimCat.Size = new System.Drawing.Size(75, 23);
+            this.btnElimCat.TabIndex = 11;
+            this.btnElimCat.Text = "Eliminar";
+            this.btnElimCat.UseVisualStyleBackColor = true;
+            // 
             // FormMuestroDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnElimCat);
+            this.Controls.Add(this.btnElimP);
+            this.Controls.Add(this.btnAddCat);
+            this.Controls.Add(this.btnAddProd);
             this.Controls.Add(this.dgvc);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBuscarCat);
@@ -224,6 +268,7 @@
             this.Controls.Add(this.txtIDProd);
             this.Controls.Add(this.dgvp);
             this.Name = "FormMuestroDatos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DATOS";
             ((System.ComponentModel.ISupportInitialize)(this.dgvp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvc)).EndInit();
@@ -256,6 +301,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Picture;
+        private System.Windows.Forms.Button btnAddProd;
+        private System.Windows.Forms.Button btnAddCat;
+        private System.Windows.Forms.Button btnElimP;
+        private System.Windows.Forms.Button btnElimCat;
     }
 }
 

@@ -8,19 +8,15 @@ using System.Threading.Tasks;
 
 namespace Lab.Logic
 {
-    public class CategoriesLogic
+    public class CategoriesLogic : BaseLogic
     {
-        private readonly DataContext context;
-        public CategoriesLogic()
-        {
-            this.context = new DataContext();
-        }
-        public List<Categories> Categories()
+
+        public List<Categories> GetAll()
         {
             DataContext context = new DataContext();
             return context.Categories.ToList();
         }
-        public Categories Categoria(int id)
+        public Categories GetOne(int id)
         {
             return context.Categories.FirstOrDefault(r => r.CategoryID.Equals(id));
         }

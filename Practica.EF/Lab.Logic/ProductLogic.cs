@@ -8,18 +8,14 @@ using System.Threading.Tasks;
 
 namespace Lab.Logic
 {
-    public class ProductLogic
+    public class ProductLogic : BaseLogic
     {
-        private readonly DataContext context;
-        public ProductLogic()
-        {
-            this.context = new DataContext();
-        }
-        public List<Products> Products()
+        public List<Products> GetAll()
         {
             return context.Products.ToList();
         }
-        public Products Producto(int id)
+
+        public Products GetOne(int id)
         {
             return context.Products.FirstOrDefault(r => r.ProductID.Equals(id));
         }
