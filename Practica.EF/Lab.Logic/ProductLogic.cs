@@ -42,7 +42,6 @@ namespace Lab.Logic
             prodEdit.UnitsInStock = entity.UnitsInStock;
             prodEdit.UnitsOnOrder = entity.UnitsOnOrder;
             prodEdit.ReorderLevel = entity.ReorderLevel;
-            prodEdit.Discontinued = entity.Discontinued;
 
             context.Entry(prodEdit).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();

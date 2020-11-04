@@ -1,4 +1,5 @@
-﻿using Lab.Logic;
+﻿using Lab.Entities;
+using Lab.Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,8 @@ namespace Lab.WF
     {
         ProductLogic prodlog = new ProductLogic();
         CategoriesLogic catlog = new CategoriesLogic();
+        Products prod = new Products();
+        Categories cat = new Categories();
         int IDp = 1;
         int IDc = 1;
         int flag;
@@ -79,11 +82,33 @@ namespace Lab.WF
         }
         private void ModifProd()
         {
-            flag = 1;
+            if (dgvp.SelectedRows.Count > 0)
+            {
+                int id = int.Parse(dgvp.CurrentRow.Cells[0].Value.ToString());
+
+                prod.ProductID = id;
+                prod.ProductName = dgvp.CurrentRow.Cells[1].Value.ToString();
+                prod.QuantityPerUnit = dgvp.CurrentRow.Cells[4].Value.ToString();
+                prod.UnitPrice = int.Parse(dgvp.CurrentRow.Cells[4].Value.ToString());
+                prod.UnitsInStock = Int16.Parse(dgvp.CurrentRow.Cells[5].Value.ToString());
+                prod.UnitsOnOrder = Int16.Parse(dgvp.CurrentRow.Cells[6].Value.ToString());
+                prod.ReorderLevel = Int16.Parse(dgvp.CurrentRow.Cells[7].Value.ToString());
+
+                prodlog.Update(prod);
+            }
         }
         private void ModifCat()
         {
-            flag = 2;
+            if (dgvp.SelectedRows.Count > 0)
+            {
+                int id = int.Parse(dgvp.CurrentRow.Cells[0].Value.ToString());
+
+                cat.CategoryID = id;
+                cat.CategoryName = dgvc.CurrentRow.Cells[1].Value.ToString();
+                cat.Description = dgvc.CurrentRow.Cells[2].Value.ToString();
+
+                catlog.Update(cat);
+            }
         }
         #endregion
         #region Buttons
@@ -146,17 +171,23 @@ namespace Lab.WF
 
         private void btnModC_Click(object sender, EventArgs e)
         {
-            if (dgvc.SelectedRows.Count > 0)
+            DialogResult avisomodif = MessageBox.Show("¿Quiere modificar el registro seleccionado?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (avisomodif == DialogResult.Yes)
             {
                 ModifCat();
+                MessageBox.Show("Registro actualizado");
+                CargarDGVc();
             }
         }
 
         private void btnModP_Click(object sender, EventArgs e)
         {
-            if (dgvp.SelectedRows.Count > 0)
+            DialogResult avisomodif = MessageBox.Show("¿Quiere modificar el registro seleccionado?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (avisomodif == DialogResult.Yes)
             {
                 ModifProd();
+                MessageBox.Show("Registro actualizado");
+                CargarDGVp();
             }
         }
         #endregion
