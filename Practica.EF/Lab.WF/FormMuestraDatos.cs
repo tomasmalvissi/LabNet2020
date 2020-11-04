@@ -99,9 +99,9 @@ namespace Lab.WF
         }
         private void ModifCat()
         {
-            if (dgvp.SelectedRows.Count > 0)
+            if (dgvc.SelectedRows.Count > 0)
             {
-                int id = int.Parse(dgvp.CurrentRow.Cells[0].Value.ToString());
+                int id = int.Parse(dgvc.CurrentRow.Cells[0].Value.ToString());
 
                 cat.CategoryID = id;
                 cat.CategoryName = dgvc.CurrentRow.Cells[1].Value.ToString();
@@ -174,6 +174,7 @@ namespace Lab.WF
             DialogResult avisomodif = MessageBox.Show("¿Quiere modificar el registro seleccionado?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (avisomodif == DialogResult.Yes)
             {
+                int id = int.Parse(dgvc.CurrentRow.Cells[0].Value.ToString());
                 ModifCat();
                 MessageBox.Show("Registro actualizado");
                 CargarDGVc();
@@ -185,6 +186,7 @@ namespace Lab.WF
             DialogResult avisomodif = MessageBox.Show("¿Quiere modificar el registro seleccionado?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (avisomodif == DialogResult.Yes)
             {
+
                 ModifProd();
                 MessageBox.Show("Registro actualizado");
                 CargarDGVp();
