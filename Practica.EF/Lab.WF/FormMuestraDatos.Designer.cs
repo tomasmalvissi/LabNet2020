@@ -54,6 +54,8 @@
             this.btnAddCat = new System.Windows.Forms.Button();
             this.btnElimP = new System.Windows.Forms.Button();
             this.btnElimCat = new System.Windows.Forms.Button();
+            this.btnModP = new System.Windows.Forms.Button();
+            this.btnModC = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvc)).BeginInit();
             this.SuspendLayout();
@@ -74,6 +76,8 @@
             this.Discontinued});
             this.dgvp.Location = new System.Drawing.Point(38, 72);
             this.dgvp.Name = "dgvp";
+            this.dgvp.ReadOnly = true;
+            this.dgvp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvp.Size = new System.Drawing.Size(727, 160);
             this.dgvp.TabIndex = 0;
             // 
@@ -81,51 +85,61 @@
             // 
             this.ProductID.HeaderText = "ProductID";
             this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
             // 
             // ProductName
             // 
             this.ProductName.HeaderText = "ProductName";
             this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
             // 
             // SupplierID
             // 
             this.SupplierID.HeaderText = "SupplierID";
             this.SupplierID.Name = "SupplierID";
+            this.SupplierID.ReadOnly = true;
             // 
             // CategoryID
             // 
             this.CategoryID.HeaderText = "CategoryID";
             this.CategoryID.Name = "CategoryID";
+            this.CategoryID.ReadOnly = true;
             // 
             // QuantityPerUnit
             // 
             this.QuantityPerUnit.HeaderText = "QuantityPerUnit";
             this.QuantityPerUnit.Name = "QuantityPerUnit";
+            this.QuantityPerUnit.ReadOnly = true;
             // 
             // UnitPrice
             // 
             this.UnitPrice.HeaderText = "UnitPrice";
             this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.ReadOnly = true;
             // 
             // UnitInStock
             // 
             this.UnitInStock.HeaderText = "UnitInStock";
             this.UnitInStock.Name = "UnitInStock";
+            this.UnitInStock.ReadOnly = true;
             // 
             // UnitInOrder
             // 
             this.UnitInOrder.HeaderText = "UnitInOrder";
             this.UnitInOrder.Name = "UnitInOrder";
+            this.UnitInOrder.ReadOnly = true;
             // 
             // ReorderLevel
             // 
             this.ReorderLevel.HeaderText = "ReorderLevel";
             this.ReorderLevel.Name = "ReorderLevel";
+            this.ReorderLevel.ReadOnly = true;
             // 
             // Discontinued
             // 
             this.Discontinued.HeaderText = "Discontinued";
             this.Discontinued.Name = "Discontinued";
+            this.Discontinued.ReadOnly = true;
             // 
             // txtIDProd
             // 
@@ -191,6 +205,7 @@
             this.Picture});
             this.dgvc.Location = new System.Drawing.Point(38, 283);
             this.dgvc.Name = "dgvc";
+            this.dgvc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvc.Size = new System.Drawing.Size(443, 155);
             this.dgvc.TabIndex = 7;
             // 
@@ -216,12 +231,13 @@
             // 
             // btnAddProd
             // 
-            this.btnAddProd.Location = new System.Drawing.Point(566, 35);
+            this.btnAddProd.Location = new System.Drawing.Point(468, 35);
             this.btnAddProd.Name = "btnAddProd";
             this.btnAddProd.Size = new System.Drawing.Size(104, 23);
             this.btnAddProd.TabIndex = 8;
             this.btnAddProd.Text = "Añadir Producto";
             this.btnAddProd.UseVisualStyleBackColor = true;
+            this.btnAddProd.Click += new System.EventHandler(this.btnAddProd_Click);
             // 
             // btnAddCat
             // 
@@ -231,6 +247,7 @@
             this.btnAddCat.TabIndex = 9;
             this.btnAddCat.Text = "Añadir Categoria";
             this.btnAddCat.UseVisualStyleBackColor = true;
+            this.btnAddCat.Click += new System.EventHandler(this.btnAddCat_Click);
             // 
             // btnElimP
             // 
@@ -240,21 +257,45 @@
             this.btnElimP.TabIndex = 10;
             this.btnElimP.Text = "Eliminar";
             this.btnElimP.UseVisualStyleBackColor = true;
+            this.btnElimP.Click += new System.EventHandler(this.btnElimP_Click);
             // 
             // btnElimCat
             // 
-            this.btnElimCat.Location = new System.Drawing.Point(529, 326);
+            this.btnElimCat.Location = new System.Drawing.Point(529, 383);
             this.btnElimCat.Name = "btnElimCat";
             this.btnElimCat.Size = new System.Drawing.Size(75, 23);
             this.btnElimCat.TabIndex = 11;
             this.btnElimCat.Text = "Eliminar";
             this.btnElimCat.UseVisualStyleBackColor = true;
+            this.btnElimCat.Click += new System.EventHandler(this.btnElimCat_Click);
+            // 
+            // btnModP
+            // 
+            this.btnModP.Location = new System.Drawing.Point(594, 35);
+            this.btnModP.Name = "btnModP";
+            this.btnModP.Size = new System.Drawing.Size(75, 23);
+            this.btnModP.TabIndex = 12;
+            this.btnModP.Text = "Modificar";
+            this.btnModP.UseVisualStyleBackColor = true;
+            this.btnModP.Click += new System.EventHandler(this.btnModP_Click);
+            // 
+            // btnModC
+            // 
+            this.btnModC.Location = new System.Drawing.Point(529, 336);
+            this.btnModC.Name = "btnModC";
+            this.btnModC.Size = new System.Drawing.Size(75, 23);
+            this.btnModC.TabIndex = 13;
+            this.btnModC.Text = "Modificar";
+            this.btnModC.UseVisualStyleBackColor = true;
+            this.btnModC.Click += new System.EventHandler(this.btnModC_Click);
             // 
             // FormMuestroDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnModC);
+            this.Controls.Add(this.btnModP);
             this.Controls.Add(this.btnElimCat);
             this.Controls.Add(this.btnElimP);
             this.Controls.Add(this.btnAddCat);
@@ -305,6 +346,8 @@
         private System.Windows.Forms.Button btnAddCat;
         private System.Windows.Forms.Button btnElimP;
         private System.Windows.Forms.Button btnElimCat;
+        private System.Windows.Forms.Button btnModP;
+        private System.Windows.Forms.Button btnModC;
     }
 }
 

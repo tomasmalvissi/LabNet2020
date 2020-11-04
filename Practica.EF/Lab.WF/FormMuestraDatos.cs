@@ -17,12 +17,15 @@ namespace Lab.WF
         CategoriesLogic catlog = new CategoriesLogic();
         int IDp = 1;
         int IDc = 1;
+        int flag;
+
         public FormMuestroDatos()
         {
             InitializeComponent();
             CargarDGVp();
             CargarDGVc();
         }
+        #region Metodos
         private void CargarDGVp() 
         {
             dgvp.Rows.Clear();
@@ -74,6 +77,16 @@ namespace Lab.WF
                 dr.Cells[3].Value = cat.Picture;
             }
         }
+        private void ModifProd()
+        {
+            flag = 1;
+        }
+        private void ModifCat()
+        {
+            flag = 2;
+        }
+        #endregion
+        #region Buttons
         private void btnBuscarProd_Click(object sender, EventArgs e)
         {
             IDp = int.Parse(txtIDProd.Text);
@@ -85,5 +98,67 @@ namespace Lab.WF
             IDc = int.Parse(txtIDCat.Text);
             DGVcID();
         }
+
+        private void btnAddProd_Click(object sender, EventArgs e)
+        {
+            flag = 1;
+            FormAltaDatos fad = new FormAltaDatos(flag);            
+            fad.Show();
+            this.Hide();
+        }
+
+        private void btnAddCat_Click(object sender, EventArgs e)
+        {
+            flag = 2;
+            FormAltaDatos fad = new FormAltaDatos(flag);           
+            fad.Show();
+            this.Hide();
+        }
+
+        private void btnElimCat_Click(object sender, EventArgs e)
+        {
+            if (dgvc.SelectedRows.Count > 0)
+            {
+                DialogResult avisoelimina = MessageBox.Show("¿Quiere eliminar el registro seleccionado?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if (avisoelimina == DialogResult.Yes)
+                {
+                    int id = int.Parse(dgvc.CurrentRow.Cells[0].Value.ToString());
+                    catlog.Delete(id);
+                    CargarDGVc();
+                }
+            }
+        }
+
+        private void btnElimP_Click(object sender, EventArgs e)
+        {
+            if (dgvp.SelectedRows.Count > 0)
+            {
+                DialogResult avisoelimina = MessageBox.Show("¿Quiere eliminar el registro seleccionado?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if (avisoelimina == DialogResult.Yes)
+                {
+                    int id = int.Parse(dgvp.CurrentRow.Cells[0].Value.ToString());
+                    prodlog.Delete(id);
+                    CargarDGVp();
+                }
+            }
+            
+        }
+
+        private void btnModC_Click(object sender, EventArgs e)
+        {
+            if (dgvc.SelectedRows.Count > 0)
+            {
+                ModifCat();
+            }
+        }
+
+        private void btnModP_Click(object sender, EventArgs e)
+        {
+            if (dgvp.SelectedRows.Count > 0)
+            {
+                ModifProd();
+            }
+        }
+        #endregion
     }
 }
