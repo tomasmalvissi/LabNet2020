@@ -1,0 +1,31 @@
+﻿@model  List<Lab.Entities.Categories>
+
+
+@{
+    ViewBag.Title = "Categorias";
+}
+
+<h2>Index</h2>
+<table class="table">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Description</td>
+        <td>Picture</td>
+        <td>Acciones</td>
+    </tr>
+    @foreach (var categ in Model)
+    {
+        <tr>
+            <td>@categ.CategoryID</td>
+            <td>@categ.CategoryName</td>
+            <td>@categ.Description</td>
+            <td>@categ.Picture</td>
+            <td>@Html.ActionLink("Eliminar", "Delete", new {id = categ.CategoryID})</td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.ActionLink("Insertar", "Insert", "Categories")
+</div>
+
