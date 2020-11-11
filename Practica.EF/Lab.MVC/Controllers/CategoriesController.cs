@@ -18,6 +18,7 @@ namespace Lab.MVC.Controllers
 
             return View(categorias);
         }
+
         [HttpPost]
         public ActionResult Insert(Categories categ)
         {
@@ -25,6 +26,7 @@ namespace Lab.MVC.Controllers
             logic.Insert(categ);
             return RedirectToAction("Index");
         }
+
         [HttpDelete]
         public ActionResult Delete(int id)
         {

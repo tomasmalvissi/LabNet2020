@@ -1,13 +1,15 @@
-﻿@model Lab.Entities.Categories
+﻿
+
+@model Lab.Entities.Categories
 @{
-    ViewBag.Title = "Agregar Categoria";
+    ViewBag.Title = "Insert";
 }
 
 <h2>Insertar</h2>
 
-@using (Html.BeginForm("Insert", "Categories", FormMethod.Post))
+@using (Html.BeginForm("Insertar", "Categories", FormMethod.Post))
 {
     <div>Name: @Html.TextBoxFor(d => d.CategoryName)</div>
     <div>Descripcion: @Html.TextBoxFor(d => d.Description)</div>
-    <input type="submit" name="save" value="Guardar"/>
+    <input type="submit" name="save" value="Guardar" />
 }
