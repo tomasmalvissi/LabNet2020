@@ -1,34 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="CSS/style.css/">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>   
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+
     <title>Contacto</title>
 </head>
 <body>
-    <div>
-        <form class="formulario">
-            <fieldset>
-                <label>Informacion Personal</label>
-                <p>Nombre:</p>
-                <input name="nombre" id="itnom"></input><br>
-                <p>Apellido:</p>
-                <input name="apellido" id="itap"></input><br>
-                <p>Edad:</p>
-                <input name="edad" id="itedad"></input><br><br>
-                <input type="radio" name="sexo" value="masc"> Masculino<br>
-                <input type="radio" name="sexo" value="fem"> Femenino<br>
-                <input type="radio" name="sexo" value="otro"> Otro<br>
-            </fieldset>
-            <fieldset>
-                <label>Informacion Adicional</label>
-                <p>Empresa:</p>
-                <input name="empresa"></input><br>
-            </fieldset>
-            <p><input type="submit" value="Enviar datos"></p>
-        </form>
-    </div>
+    <form action="" method="POST" id="form">
+        <div class="form">
+            <div class="infopersonal">
+                <h2>Información personal</h2>
+                <div class="grupo">
+                    <label>Nombre:</label><br>
+                    <input type="text" name="" id="nombre" >
+                    <span class="barra"></span>
+                </div>
+                <div class="grupo">
+                    <label>Apellido:</label><br>
+                    <input type="text" name="" id="apellido" >
+                    <span class="barra"></span>
+                </div>
+                <div class="grupo">
+                    <label>Edad:</label><br>
+                    <input type="number" name="" id="edad" >
+                    <span class="barra" id="minibarra"></span>
+                </div>
+                <div class="genero">
+                    <input type="radio" id="masculino" name="genero" value="masculino">
+                    <label for="masculino">Masculino</label><br>
+                    <input type="radio" id="femenino" name="genero" value="femenino">
+                    <label for="femenino">Femenino</label><br>
+                    <input type="radio" id="otro" name="genero" value="otro">
+                    <label for="otro">Otro</label><br>
+                </div>
+            </div>
+            <div class="infoadicional">
+                <h2>Información adicional</h2>
+                <div class="grupo"> 
+                    <label>Empresa:</label><br>
+                    <textarea name="" id="empresa" rows="3" ></textarea><span class="barra"></span>
+                </div>
+            </div>
+           
+            <button id="submit">Enviar</button>
+            <button id="clear">Limpiar</button>
+            <p class="warnings" id="warnings"></p>
+        </div>
+    </form>
+    <script src="script.js"></script>
 </body>
 </html>
