@@ -16,13 +16,16 @@
     </tr>
     @foreach (var categ in Model)
     {
-        <tr>
-            <td>@categ.CategoryID</td>
-            <td>@categ.CategoryName</td>
-            <td>@categ.Description</td>
-            <td>@categ.Picture</td>
-            <td>@Html.ActionLink("Eliminar", "Delete", new {id = categ.CategoryID})</td>
-        </tr>
+    <tr>
+        <td>@categ.CategoryID</td>
+        <td>@categ.CategoryName</td>
+        <td>@categ.Description</td>
+        <td>@categ.Picture</td>
+        <td>
+            <a class="btn btn-default" href="~/Categories/Edit/@categ.CategoryID">Edit</a>
+            <a class="btn btn-danger" href="~/Categories/Delete/@categ.CategoryID">Delete</a>
+        </td>
+    </tr>
     }
 </table>
 <div>

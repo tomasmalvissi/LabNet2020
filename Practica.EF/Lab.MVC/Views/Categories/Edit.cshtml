@@ -1,0 +1,12 @@
+﻿@Model Lab.Entities.Categories
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("Edit", "Categories", FormMethod.Post))
+{
+    @Html.Partial("_Form");
+}

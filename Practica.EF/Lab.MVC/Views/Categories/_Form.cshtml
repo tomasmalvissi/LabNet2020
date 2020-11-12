@@ -1,0 +1,21 @@
+﻿@model Lab.Entities.Categories
+<div class="row">
+    <div class="col-md-12">
+        @Html.HiddenFor(d => d.CategoryID)
+
+        <div>
+            @Html.LabelFor(d => d.CategoryName)
+            @Html.TextBoxFor(d => d.CategoryName, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.CategoryName, null, new { @class = "red" })
+        </div>
+        <div>
+            @Html.LabelFor(q => q.Description)
+            @Html.TextBoxFor(q => q.Description, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(q => q.Description, null, new { @class = "red" })
+        </div>
+    </div>
+    <br />
+    <div style="text-align:center;">
+        <input type="submit" class="btn btn-primary" value="Save" />
+    </div>
+</div>

@@ -19,6 +19,11 @@ namespace Lab.MVC.Controllers
             return View(categorias);
         }
 
+        public ActionResult Insert()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Insert(Categories categ)
         {
@@ -27,12 +32,29 @@ namespace Lab.MVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Edit(int id)
+        {
+            var logic = new CategoriesLogic();
+            var categorias = logic.GetOne(id);
+        
+            return View(categorias);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Categories categ)
+        {
+            var logic = new CategoriesLogic();
+            logic.Update(categ);
+            return RedirectToAction("Index");
+        }
+
         [HttpDelete]
         public ActionResult Delete(int id)
         {
             var logic = new CategoriesLogic();
             logic.Delete(id);
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
+            return Redirect("/Categories/Index");
         }
     }
 }
