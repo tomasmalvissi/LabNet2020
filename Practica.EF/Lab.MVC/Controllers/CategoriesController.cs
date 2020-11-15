@@ -13,10 +13,19 @@ namespace Lab.MVC.Controllers
         // GET: Categories
         public ActionResult Index()
         {
-            var logic = new CategoriesLogic();
-            var categorias = logic.GetAll();
+            try
+            {
+                var logic = new CategoriesLogic();
+                var categorias = logic.GetAll();
 
-            return View(categorias);
+                return View(categorias);
+            }
+            catch (Exception ex)
+            {
+                TempData["exMessage"] = ex.Message;
+                return RedirectToAction("Error", "Error");
+            }
+            
         }
 
         public ActionResult Insert()
@@ -27,34 +36,65 @@ namespace Lab.MVC.Controllers
         [HttpPost]
         public ActionResult Insert(Categories categ)
         {
-            var logic = new CategoriesLogic();
-            logic.Insert(categ);
-            return RedirectToAction("Index");
+            try 
+            {
+                var logic = new CategoriesLogic();
+                logic.Insert(categ);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["exMessage"] = ex.Message;
+                return RedirectToAction("Error", "Error");
+            }
         }
 
         public ActionResult Edit(int id)
         {
-            var logic = new CategoriesLogic();
-            var categorias = logic.GetOne(id);
-        
-            return View(categorias);
+            try
+            {
+                var logic = new CategoriesLogic();
+                var categorias = logic.GetOne(id);
+
+                return View(categorias);
+            }
+            catch (Exception ex)
+            {
+                TempData["exMessage"] = ex.Message;
+                return RedirectToAction("Error", "Error");
+            }
         }
 
         [HttpPost]
         public ActionResult Edit(Categories categ)
         {
-            var logic = new CategoriesLogic();
-            logic.Update(categ);
-            return RedirectToAction("Index");
+            try
+            {
+                var logic = new CategoriesLogic();
+                logic.Update(categ);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["exMessage"] = ex.Message;
+                return RedirectToAction("Error", "Error");
+            }
         }
 
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            var logic = new CategoriesLogic();
-            logic.Delete(id);
-            //return RedirectToAction("Index");
-            return Redirect("/Categories/Index");
+            try
+            {
+                var logic = new CategoriesLogic();
+                logic.Delete(id);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["exMessage"] = ex.Message;
+                return RedirectToAction("Error", "Error");
+            }
         }
     }
 }
