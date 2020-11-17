@@ -1,4 +1,4 @@
-﻿@model Lab.MVC.Models.Character
+﻿@model List<Lab.MVC.Models.Character>
 @{
     ViewBag.Title = "Characters";
 }
@@ -15,11 +15,12 @@
                 <th>LastName</th>
                 <th></th>
             </tr>
-            @{
+            @foreach (var p in Model)
+            {
                 <tr>
-                    <td>@Model._id</td>
-                    <td>@Model.firstname</td>
-                    <td>@Model.lastname</td>
+                    <td>@p._id</td>
+                    <td>@p.firstname</td>
+                    <td>@p.lastname</td>
                 </tr>
             }
         </table>
